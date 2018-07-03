@@ -69,7 +69,7 @@ class Human:
         return max([x.score for _, x in self.body_parts.items()])
 
     def __str__(self):
-        return ' '.join([str(x) for x in self.body_parts.values()])
+        return ' '.join([str(x.getCoordinates()) for x in self.body_parts.values()])
 
     def __repr__(self):
         return self.__str__()
@@ -94,6 +94,9 @@ class BodyPart:
 
     def __str__(self):
         return 'BodyPart:%d-(%.2f, %.2f) score=%.2f' % (self.part_idx, self.x, self.y, self.score)
+
+    def getCoordinates(self):
+        return (self.part_idx,self.x,self.y) 
 
     def __repr__(self):
         return self.__str__()
